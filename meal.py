@@ -3,6 +3,7 @@ import json
 import requests
 import time, datetime
 import pandas as pd
+from dotenv import load_dotenv
 import os
 
 load_dotenv()
