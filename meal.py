@@ -8,7 +8,7 @@ import os
 load_dotenv()
 
 url = 'https://open.neis.go.kr/hub/'
-service_key = 'e107df61b26e4c54a4330bb2e59f4c9b'
+service_key = os.getenv('EDU_API_KEY')
 office_Education_list = ['강원특별자치도교육청','경기도교육청','경상남도교육청',
                          '경상북도교육청','광주광역시교육청','대구광역시교육청',
                          '대전광역시교육청','부산광역시교육청','서울특별시교육청',
