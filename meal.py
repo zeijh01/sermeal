@@ -3,7 +3,9 @@ import json
 import requests
 import time, datetime
 import pandas as pd
+import os
 
+load_dotenv()
 
 url = 'https://open.neis.go.kr/hub/'
 service_key = 'e107df61b26e4c54a4330bb2e59f4c9b'
