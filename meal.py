@@ -71,6 +71,13 @@ def get_menus(school_name, office_Education,day=datetime.date.today().strftime('
 
     return menu
 
+def menu_name(df):
+    df.columns=['점심메뉴']
+    index_name=['밥','국']
+    for i in range(1,df.shape[0]-1):
+        index_name.append('메뉴'+str(i))
+    df.index=index_name
+    return df
 
 #streamlit 화면구성
 con1,con2 = st.columns([3,1])
@@ -100,11 +107,15 @@ meal_date = st.date_input('원하는 급식 날짜')
 if start_button:
     st.write(f'#### :green[{meal_date}] :blue[{school_name}] 의 급식메뉴')
     df = pd.DataFrame(get_menus(school_name,office_Education,day=meal_date.strftime('%Y%m%d')))
+    df = menu_name(df)
     st.dataframe(df)
+    
 else:
     st.write(f'#### :green[{meal_date}] :blue[광명고등학교] 의 급식메뉴')
     df = pd.DataFrame(get_menus("광명고등학교",'경기도교육청',day=meal_date.strftime('%Y%m%d')))
+    df = menu_name(df)
     st.dataframe(df)
 
 
+    
 
